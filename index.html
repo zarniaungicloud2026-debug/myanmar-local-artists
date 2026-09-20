@@ -6,6 +6,10 @@
   <title>Myanmar Local Artists</title>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -15,12 +19,12 @@
 
     header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 35px 20px;
     }
 
     header h1 {
       margin: 0;
-      font-size: 32px;
+      font-size: 30px;
     }
 
     header p {
@@ -41,6 +45,12 @@
       border-radius: 15px;
       overflow: hidden;
       text-align: center;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .artist-card:active {
+      transform: scale(0.97);
     }
 
     .artist-card img {
@@ -54,64 +64,119 @@
       margin: 0;
       padding: 14px 5px;
     }
+
+    #songs {
+      display: none;
+      padding: 25px 20px;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .back {
+      background: #333;
+      color: white;
+      border: 0;
+      padding: 10px 18px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    #artistName {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .song {
+      background: #1d1d1d;
+      padding: 16px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+    }
   </style>
 </head>
 
 <body>
 
-  <header>
+  <header id="home">
     <h1>Myanmar Local Artists</h1>
     <p>Discover Myanmar Local Artists</p>
   </header>
 
-  <div class="artists">
+  <div class="artists" id="artists">
 
-    <div class="artist-card">
+    <div class="artist-card" onclick="showSongs('Two Two Three')">
       <img src="IMG_1171.jpeg" alt="Two Two Three">
       <h3>Two Two Three</h3>
     </div>
 
-    <div class="artist-card">
-      <img src="IMG_1172.jpeg" alt="w4wink">
-      <h3>w4wink</h3>
+    <div class="artist-card" onclick="showSongs('Yung Punch')">
+      <img src="IMG_1172.jpeg" alt="Yung Punch">
+      <h3>Yung Punch</h3>
     </div>
 
-    <div class="artist-card">
+    <div class="artist-card" onclick="showSongs('Arki')">
       <img src="IMG_1173.jpeg" alt="Arki">
       <h3>Arki</h3>
     </div>
 
-    <div class="artist-card">
-      <img src="IMG_1176.jpeg" alt="Ah Sar">
+    <div class="artist-card" onclick="showSongs('Murkio')">
+      <img src="IMG_1174.jpeg" alt="Murkio">
+      <h3>Murkio</h3>
+    </div>
+
+    <div class="artist-card" onclick="showSongs('Roload')">
+      <img src="IMG_1175.jpeg" alt="Roload">
+      <h3>Roload</h3>
+    </div>
+
+    <div class="artist-card" onclick="showSongs('Myat Amara Maung')">
+      <img src="IMG_1176.jpeg" alt="Myat Amara Maung">
+      <h3>Myat Amara Maung</h3>
+    </div>
+
+    <div class="artist-card" onclick="showSongs('Ah Sar')">
+      <img src="IMG_1177.jpeg" alt="Ah Sar">
       <h3>Ah Sar</h3>
     </div>
 
-    <div class="artist-card">
+    <div class="artist-card" onclick="showSongs('w4wink')">
+      <img src="IMG_1178.jpeg" alt="w4wink">
+      <h3>w4wink</h3>
+    </div>
+
+    <div class="artist-card" onclick="showSongs('Kee Bio')">
       <img src="IMG_1179.jpeg" alt="Kee Bio">
       <h3>Kee Bio</h3>
     </div>
 
-    <div class="artist-card">
-      <img src="IMG_1180.jpeg" alt="Roload">
-      <h3>Roload</h3>
-    </div>
-
-    <div class="artist-card">
-      <img src="IMG_1181.jpeg" alt="Myat Amara Maung">
-      <h3>Myat Amara Maung</h3>
-    </div>
-
-    <div class="artist-card">
-      <img src="IMG_1182.jpeg" alt="Yung Punch">
-      <h3>Yung Punch</h3>
-    </div>
-
-    <div class="artist-card">
-      <img src="IMG_1183.jpeg" alt="Murkio">
-      <h3>Murkio</h3>
-    </div>
-
   </div>
+
+  <div id="songs">
+    <button class="back" onclick="goBack()">← Back</button>
+
+    <h2 id="artistName"></h2>
+
+    <div class="song">🎵 Song 1</div>
+    <div class="song">🎵 Song 2</div>
+    <div class="song">🎵 Song 3</div>
+    <div class="song">🎵 Song 4</div>
+  </div>
+
+  <script>
+    function showSongs(name) {
+      document.getElementById("artists").style.display = "none";
+      document.getElementById("home").style.display = "none";
+      document.getElementById("songs").style.display = "block";
+      document.getElementById("artistName").textContent = name;
+    }
+
+    function goBack() {
+      document.getElementById("songs").style.display = "none";
+      document.getElementById("artists").style.display = "grid";
+      document.getElementById("home").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
